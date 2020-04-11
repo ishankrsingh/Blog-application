@@ -1,6 +1,9 @@
 //this is a be default statement . It is like headerfile in C++ ..
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+// ..means its going one folder back to find blog service as it resides in app folder
+import { BlogService } from '../blog.service';
 
 //This is know as decorator
 @Component({
@@ -9,54 +12,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 //simple class
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,OnDestroy {
 
-  //declare a dummy blog variable here
-  public allBlogs=[
-    {
-      "blogId":"1",
-      "lastModified":"2017-10-20T12:20:47.854Z",
-      "created":"2017-10-20T12:20:47.854Z",
-      "tags":["comedy","humour"],
-      "author":"Admin",
-      "category":"Comedy",
-      "isPublished": true,
-      "views": 0,
-      "bodyHtml":"this is blog body ",
-      "description": "this is blog 1 description",
-      "title":"This is blog 1"
-    },
-    {
-      "blogId":"2",
-      "lastModified":"2017-10-20T12:20:47.854Z",
-      "created":"2017-10-20T12:20:47.854Z",
-      "tags":["comedy","humour"],
-      "author":"Admin",
-      "category":"Comedy",
-      "isPublished": true,
-      "views": 0,
-      "bodyHtml":"<h1>this is big text</h1><p>this is small text</p> ",
-      "description": "this is the description of an example blog",
-      "title":"This is an example log"
-    },
-    {
-      "blogId":"3",
-      "lastModified":"2017-10-20T12:20:47.854Z",
-      "created":"2017-10-20T12:20:47.854Z",
-      "tags":["dark","horror"],
-      "author":"Admin",
-      "category":"Comedy",
-      "isPublished": true,
-      "views": 0,
-      "bodyHtml":"this is blog body ",
-      "description": "this is blog 3 description",
-      "title":"This is blog 3"
-    }
-    
-  ]
-  constructor() { }
+  public allBlogs;
+
+  constructor(public blogService:BlogService) { 
+    console.log("home component constructor is called");
+  }
 
   ngOnInit(): void {
+    console.log("home component onInit is called");
+  
+    this.allBlogs=this.blogService.getAllBlogs();
+    console.log(this.allBlogs);
+
+  }
+  ngOnDestroy(): void {
+    console.log("home component is destroyed");
   }
 
 }
