@@ -4,6 +4,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 // ..means its going one folder back to find blog service as it resides in app folder
 import { BlogService } from '../blog.service';
+import { BlogHttpService } from "../blog-http.service";
 
 //This is know as decorator
 @Component({

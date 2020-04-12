@@ -15,6 +15,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 //import statement for service
 import { BlogService } from './blog.service';
+import { BlogHttpService } from './blog-http.service';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { BlogService } from './blog.service';
     ])
 
   ],
-  providers: [BlogService],
+  providers: [BlogService,BlogHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
