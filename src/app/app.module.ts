@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 //router module used for setting up the application level routing
 import {RouterModule,Routes} from '@angular/router';
-//import{HttpClientModule} from '@angular/common/http'
+import{HttpClientModule} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +33,7 @@ import { BlogHttpService } from './blog-http.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     //routerModule forRoot method to declare the possible routes in application
     RouterModule.forRoot([
       {path:'home',component:HomeComponent},

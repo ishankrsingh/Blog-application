@@ -15,7 +15,7 @@ import { BlogHttpService } from "../blog-http.service";
 //simple class
 export class HomeComponent implements OnInit,OnDestroy {
 
-  public allBlogs;
+  public allBlogs=[];
 
   constructor(public blogHttpService:BlogHttpService) { 
     console.log("home component constructor is called");
@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit,OnDestroy {
     //this.allBlogs=this.blogHttpService.getAllBlogs();
     this.allBlogs=this.blogHttpService.getAllBlogs().subscribe(
       data =>{
+        console.log("logging data");
         console.log(data);
         this.allBlogs=data["data"];
       },
