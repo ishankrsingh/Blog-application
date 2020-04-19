@@ -50,4 +50,25 @@ private handleError(err:HttpErrorResponse){
   }
   //end get blog information function
 
+  public createBlog(blogData):any {
+    
+    let myResponse= this._http.post(this.baseUrl + '/create' + this.authToken,blogData);
+    return myResponse;
+  }
+  //end create blog
+
+  public deleteBlog(blogId):any{
+
+    let data={};
+    let myResponse=this._http.post(this.baseUrl + '/' + blogId +this.authToken,data);
+    return myResponse;
+  }
+  //end delete blog
+
+  public editBlog(blogId,blogData)
+  {
+    let myResponse=this._http.put(this.baseUrl + '/' + blogId + '/edit' + this.authToken,blogData);
+    return myResponse;
+  }
+
 }

@@ -1,9 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';   
+
+import{FormsModule} from '@angular/forms';
+
 //router module used for setting up the application level routing
 import {RouterModule,Routes} from '@angular/router';
-import{HttpClientModule} from '@angular/common/http'
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,10 +19,13 @@ import { BlogEditComponent } from './blog-edit/blog-edit.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+
+
 //import statement for service
 import { BlogService } from './blog.service';
 import { BlogHttpService } from './blog-http.service';
-
+import{HttpClient} from '@angular/common/http';
+import{HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +42,10 @@ import { BlogHttpService } from './blog-http.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     //routerModule forRoot method to declare the possible routes in application
+    BrowserAnimationsModule,
+    ToastModule.forRoot(),
     RouterModule.forRoot([
       {path:'home',component:HomeComponent},
       {path:'',redirectTo:'home',pathMatch:'full'},
