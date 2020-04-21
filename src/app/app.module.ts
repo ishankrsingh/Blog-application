@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import{ CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToastModule} from 'ng2-toastr/ng2-toastr';   
+import{ToastrModule} from 'ngx-toastr';
+//import {ToastModule} from 'ng2-toastr/ng2-toastr';   
+
+//import '~ngx-toastr/toastr';
 
 import{FormsModule} from '@angular/forms';
 
@@ -44,8 +48,9 @@ import{HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     FormsModule,
     //routerModule forRoot method to declare the possible routes in application
+    CommonModule,
     BrowserAnimationsModule,
-    ToastModule.forRoot(),
+    ToastrModule.forRoot(),
     RouterModule.forRoot([
       {path:'home',component:HomeComponent},
       {path:'',redirectTo:'home',pathMatch:'full'},

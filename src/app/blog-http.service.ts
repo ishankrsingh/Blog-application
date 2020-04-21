@@ -56,11 +56,11 @@ private handleError(err:HttpErrorResponse){
     return myResponse;
   }
   //end create blog
-
+ 
   public deleteBlog(blogId):any{
 
     let data={};
-    let myResponse=this._http.post(this.baseUrl + '/' + blogId +this.authToken,data);
+    let myResponse=this._http.post(this.baseUrl + '/' + blogId + '/delete' + this.authToken,data);
     return myResponse;
   }
   //end delete blog
